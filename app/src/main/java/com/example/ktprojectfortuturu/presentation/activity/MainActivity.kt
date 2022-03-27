@@ -2,7 +2,6 @@ package com.example.ktprojectfortuturu.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ktprojectfortuturu.R
 import com.example.ktprojectfortuturu.databinding.ActivityMainBinding
 
 

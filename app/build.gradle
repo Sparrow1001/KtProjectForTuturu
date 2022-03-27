@@ -13,6 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "API_KEY", "\"OpkDqLTdCgYQzJBBnJEfMrcLHDyhE3GZG4rwPqYP\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -63,7 +65,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
     implementation "io.reactivex.rxjava2:rxjava:2.2.19"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
 
