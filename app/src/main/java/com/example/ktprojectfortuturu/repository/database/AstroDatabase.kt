@@ -12,7 +12,7 @@ import com.example.ktprojectfortuturu.repository.model.AstroPicturesDTO
 )
 abstract class AstroDatabase : RoomDatabase() {
 
-    abstract fun getAstroPictureDao(): AstroPicturesDAO
+    abstract fun getAstroPictureDao() : AstroPicturesDAO
 
     companion object{
         @Volatile
@@ -27,7 +27,7 @@ abstract class AstroDatabase : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 AstroDatabase::class.java,
-                "astro_database"
+                "astro_database.db"
             ).build()
 
     }

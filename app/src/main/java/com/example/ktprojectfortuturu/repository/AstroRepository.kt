@@ -1,4 +1,11 @@
 package com.example.ktprojectfortuturu.repository
 
-class AstroRepository {
+import com.example.ktprojectfortuturu.repository.database.AstroDatabase
+import com.example.ktprojectfortuturu.repository.network.RetrofitInstance
+
+class AstroRepository(
+    val db: AstroDatabase
+) {
+    suspend fun getAstroPictures() =
+        RetrofitInstance.api.getAstroPictures()
 }

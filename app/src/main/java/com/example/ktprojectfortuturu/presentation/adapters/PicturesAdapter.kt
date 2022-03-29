@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ktprojectfortuturu.R
-import com.example.ktprojectfortuturu.databinding.ItemAstroPictureBinding
 import com.example.ktprojectfortuturu.repository.model.AstroPicturesDTO
+import kotlinx.android.synthetic.main.item_astro_picture.view.*
 
 class PicturesAdapter : RecyclerView.Adapter<PicturesAdapter.PictureViewHolder>() {
 
@@ -51,10 +51,9 @@ class PicturesAdapter : RecyclerView.Adapter<PicturesAdapter.PictureViewHolder>(
 
     override fun onBindViewHolder(holder: PictureViewHolder, position: Int) {
         val astro = differ.currentList[position]
-        lateinit var binding: ItemAstroPictureBinding
         holder.itemView.apply {
-            binding.dateTv.text = astro.date
-            binding.titleTv.text = astro.title
+            dateTv.text = astro.date
+            titleTv.text = astro.title
 
             setOnClickListener{
                 onItemClickListener?.let { it(astro) }
