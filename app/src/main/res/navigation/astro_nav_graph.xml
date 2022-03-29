@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.ktprojectfortuturu.presentation.fragments.DetailFragment"
-        android:label="DetailFragment" />
+        android:label="DetailFragment" >
+        <argument
+            android:name="picture"
+            app:argType="com.example.ktprojectfortuturu.repository.model.AstroPicturesDTO" />
+    </fragment>
 </navigation>

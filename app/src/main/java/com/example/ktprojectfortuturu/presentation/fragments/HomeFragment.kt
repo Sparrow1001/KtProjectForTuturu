@@ -2,11 +2,10 @@ package com.example.ktprojectfortuturu.presentation.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ktprojectfortuturu.R
 import com.example.ktprojectfortuturu.domain.AstroViewModel
@@ -26,6 +25,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
+
+        picturesAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("picture", it)
+            }
+            findNavController().navigate(
+                R.id.action_homeFragment_to_detailFragment,
+                bundle
+            )
+        }
 
         viewModel.astroPicture.observe(viewLifecycleOwner, Observer { response ->
             when(response){
