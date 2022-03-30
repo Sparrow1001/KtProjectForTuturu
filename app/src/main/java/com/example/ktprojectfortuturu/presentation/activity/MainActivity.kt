@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val astroRepository = AstroRepository(AstroDatabase(this))
-        val viewModelProviderFactory = AstroViewModelProviderFactory(astroRepository)
+        val viewModelProviderFactory = AstroViewModelProviderFactory(application, astroRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(AstroViewModel::class.java)
     }
 

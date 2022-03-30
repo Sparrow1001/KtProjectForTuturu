@@ -7,7 +7,7 @@ import com.example.ktprojectfortuturu.repository.model.AstroPicturesDTO
 @Dao
 interface AstroPicturesDAO {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun upsert(picturesDTO: AstroPicturesDTO): Long
 
     @Query("SELECT * FROM pictures")
