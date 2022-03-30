@@ -8,7 +8,7 @@ import com.example.ktprojectfortuturu.repository.model.AstroPicturesDTO
 
 @Database(
     entities = [AstroPicturesDTO::class],
-    version = 2
+    version = 4
 )
 abstract class AstroDatabase : RoomDatabase() {
 

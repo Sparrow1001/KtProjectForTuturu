@@ -33,7 +33,7 @@ class AstroViewModel(
     private fun handleAstroPictureResponse(response: Response<List<AstroPicturesDTO>>):Resource<List<AstroPicturesDTO>>{
         if (response.isSuccessful){
             response.body()?.let { resultResponse ->
-                for (i in 0..resultResponse.size - 1) savePicture(resultResponse.get(i))
+                for (i in resultResponse.indices) savePicture(resultResponse.get(i))
                 return Resource.Success(resultResponse)
             }
         }
