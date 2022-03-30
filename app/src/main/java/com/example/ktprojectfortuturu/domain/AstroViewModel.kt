@@ -6,10 +6,7 @@ import android.net.ConnectivityManager
 import android.net.ConnectivityManager.*
 import android.net.NetworkCapabilities.*
 import android.os.Build
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.ktprojectfortuturu.AstroApplication
 import com.example.ktprojectfortuturu.repository.AstroRepository
 import com.example.ktprojectfortuturu.repository.model.AstroPicturesDTO
@@ -56,7 +53,9 @@ class AstroViewModel(
                 val response = astroRepository.getAstroPictures()
                 astroPicture.postValue(handleAstroPictureResponse(response))
             } else {
+                val response = getSavedPictures()
                 astroPicture.postValue(Resource.Error("No internet connection"))
+                astroPicture.postValue(Resource.NoInternet(response))
             }
         } catch (t: Throwable) {
             when(t) {

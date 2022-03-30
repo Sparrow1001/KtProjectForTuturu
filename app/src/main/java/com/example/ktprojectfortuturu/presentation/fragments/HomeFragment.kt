@@ -56,6 +56,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 is Resource.Loading -> {
                     showProgressBar()
                 }
+
+                is Resource.NoInternet -> {
+                    hideProgressBar()
+                    response.liveData?.let { astroResponse ->
+                        astroResponse.observe(viewLifecycleOwner, Observer { response ->
+                            picturesAdapter.differ.submitList(response)
+                        })
+
+                    }
+                }
             }
         })
     }
